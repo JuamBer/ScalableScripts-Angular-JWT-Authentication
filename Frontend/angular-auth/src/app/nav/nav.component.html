@@ -3,12 +3,18 @@
     <a class="navbar-brand" routerLink="/">Home</a>
 
     <div>
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="!authenticated">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="/register">Register</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="authenticated">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/login" (click)="logOut()">Logout</a>
         </li>
       </ul>
     </div>
